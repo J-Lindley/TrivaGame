@@ -9,7 +9,7 @@ var questionsArray = [{
     question: "Where was the first Seahawks training camp?",
     answerOne: "University of Washington",
     answerTwo: "Bellevue High School",
-    answerThree: "Washington State University",
+    answerThree: "Eastern Washington University",
     correctAnswer: "Eastern Washington University"
 },
 {
@@ -21,7 +21,7 @@ var questionsArray = [{
 },
 {
     question: "Where did the name Legion of Boom come from?",
-    answerOne: "ESPN Sports Center",
+    answerOne: "The Bob and Groz show on 710 ESPN Seattle",
     answerTwo: "The Seattle Times",
     answerThree: "USA Today",
     correctAnswer: "The Bob and Groz show on 710 ESPN Seattle"
@@ -79,15 +79,9 @@ var questionsArray = [{
 
 ]
 var questionContainer = $("#questions")
-//make radio buttons for answers, each radio button needs to be named the same for each 
-//for the for loop fill out <p> tag for the question, then apply the radios for the answers
-//append a submit button at the bottom/or timer runes out 
-//results will be it's own function
+var correct = 0
+var incorrect = 0
 
-//make a for loop to post all the questions with answer options
-//make the rules/questions div .hide when showing the results
-
-//put this into the questions function
 function displayQuestions() {
     var timer = 60
     var intervalId = setInterval(decrement, 1000)
@@ -100,17 +94,16 @@ function displayQuestions() {
             clearInterval(intervalId)
         }
     }
-    for (let i = 0; i<questionsArray.length; i++){
-        questionContainer.append("<h2>" +questionsArray[i].question +"</h2>");
-        // questionContainer.append("<input type='radio' name='question"+i+" value="+questionsArray[i].answerOne+">"+questionsArray[i].answerOne)
-questionContainer.append(`<input type='radio' name='questions${i}'
+    for (let i = 0; i < questionsArray.length; i++) {
+        questionContainer.append("<h2>" + questionsArray[i].question + "</h2>");
+        questionContainer.append(`<input type='radio' name='questions${i}'
      value="${questionsArray[i].answerOne}" >${questionsArray[i].answerOne}`);
- 
-     // questionContainer.append("<input type='radio' name='question"+i+" value="+questionsArray[i].answerOne+">"+questionsArray[i].answerOne)
+        questionContainer.append(`<input type='radio' name='questions${i}'
+     value="${questionsArray[i].answerTwo}" >${questionsArray[i].answerTwo}`);
+        questionContainer.append(`<input type='radio' name='questions${i}'
+    value="${questionsArray[i].answerThree}" >${questionsArray[i].answerThree}`);
     }
 }
-//loop over radio buttons, t/f if it's marked as the correct answer in the questions array, increment Correct and Incorrect new vars
-
 
 $("#timer").on("click", function () {
     clearInterval(intervalId)
@@ -120,12 +113,83 @@ $("#start").on("click", function () {
     displayQuestions()
 })
 
-//when timer ends, give results
+$(document).ready(function () {
 
-function answers() {
-}
+    $(document).on("click", "#start", function (event) {
+        var userAnswerOne =  $("input[name='questions0']").val()
+        var userAnswerTwo =  $("input[name='questions1']").val()
+        var userAnswerThree =  $("input[name='questions2']").val()
+        var userAnswerFour =  $("input[name='questions3']").val()
+        var userAnswerFive =  $("input[name='questions4']").val()
+        var userAnswerSix =  $("input[name='questions5']").val()
+        var userAnswerSeven =  $("input[name='questions6']").val()
+        var userAnswerEight =  $("input[name='questions7']").val()
+        var userAnswerNine =  $("input[name='questions8']").val()
+        var userAnswerTen =  $("input[name='questions9']").val()
+        var userAnswerEleven =  $("input[name='questions10']").val()
+
+        if(userAnswerOne === questionsArray[0].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerTwo === questionsArray[1].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerThree === questionsArray[2].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerFour === questionsArray[3].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerFive === questionsArray[4].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerSix === questionsArray[5].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerSeven === questionsArray[6].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerEight === questionsArray[7].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerNine === questionsArray[8].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerTen === questionsArray[9].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+        if(userAnswerEleven === questionsArray[10].correctAnswer){
+            correct++
+        }else{
+            incorrect ++
+        }
+
+       
+        
+    });
 
 
+});
 
 
 
