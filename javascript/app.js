@@ -69,14 +69,6 @@ var questionsArray = [{
     correctAnswer: "72,000"
 },
 
-{
-    question: "How has started the most games for the Seahawks",
-    answerOne: "Steve Largent",
-    answerTwo: "Doug Baldwin",
-    answerThree: "Warren Moon",
-    correctAnswer: "Steve Largent"
-},
-
 ]
 var questionContainer = $("#questions")
 var correct = 0
@@ -184,11 +176,7 @@ console.log(userAnswerEight, userAnswerNine)
         }else{
             incorrect ++
         }
-        if(userAnswerEleven === questionsArray[10].correctAnswer){
-            correct++
-        }else{
-            incorrect ++
-        }
+       
         clearInterval(intervalId)
         scoreBoard()
     

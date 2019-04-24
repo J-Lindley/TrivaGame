@@ -1,9 +1,31 @@
-/* #backgroundImage {
-    opacity: 0.2;
-    width:  100%;
-    height: 100%; */
 
-/* } */
 body {
     background: url("../images/backgroundimage.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+  }
+
+  #rules {
+      text-align: center;
+      font-size: 21px; 
+      color: white;     
+
+  }
+
+  #questions {
+      font-size: 14px;
+        color: white;
+        text-shadow: 2px 2px 2px #010304;
+    }
+
+  #timer {
+    color: white;
+  }
+
+  #results {
+    font-size: 34px;
+    color: black;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px white;
   }
